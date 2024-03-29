@@ -1,0 +1,178 @@
+@import "AppSub.scss";
+
+$color: blue;
+
+@mixin default-type {
+    color: red;
+    margin-bottom: 2rem;
+    font-size: 1rem;    
+}
+
+@mixin default-a-type($color) {
+    font-weight: bold;
+    text-decoration: none;
+    color: green;
+    border-bottom: 2px solid $color;
+}
+
+@mixin default-a-type2($bottom-color,$color) {
+    font-weight: bold;
+    text-decoration: none;
+    color: $color;
+    border-bottom: 2px solid $bottom-color;
+}
+
+@mixin default-a-type3($color: pink) {
+    font-weight: bold;
+    text-decoration: none;
+    color: $color;
+    border-bottom: 2px solid black;
+}
+
+@mixin rounded($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+// p {
+//     @include default-type;
+// }
+
+header[role="banner"] {
+    margin: 20px 0 30px 0;
+    border-bottom: 4px solid #333;
+
+    #logo {
+        float: left;
+        margin: 0 20px 0 0;
+        img {
+            display: block;
+            opacity: .95;
+        }
+    }
+
+    h1 {
+        color: $color;
+        padding: 0px 0px;
+        font-size: 20px;        
+        font-family: Georgia, serif;
+        font-weight: bold;        
+    }
+
+    h2 {
+        font: {
+            color: yellow;
+            weight: bold;
+            size: 30px;
+        }
+    }
+}
+
+div[role="Test"] {
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        color: green;
+        border-bottom: 2px solid red;
+
+        //붙여야 한다 띄여쓰기 주의
+        &:hover {
+            color: maroon;
+            border-color: blue;
+        }
+    }
+}
+
+div.test {
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        color: blue;
+        border-bottom: 2px solid blue;
+    }
+}
+
+div.test1 {
+    a {
+        @include default-a-type(#000000);
+    }
+}
+
+div.test2 {
+    a {
+        @include default-a-type2(#000000, yellow);
+    }
+}
+
+div.test3 {
+    a {
+        @include default-a-type3()
+    }
+}
+
+div.test4 {
+    a {
+        @include default-app-sub()
+    }
+}
+
+.test-text {
+    font-size: 20px;
+}
+
+div.test5 {
+    @extend .test-text;
+    color: orange;
+}
+
+%button {    
+    padding: 10px;
+    font-weight: bold;
+    background: blue;
+    border-radius: 6px;
+}
+
+div.test6 {
+    margin-top: 90px;
+    margin-bottom: 90px;
+    a {
+        @extend %button;
+    }    
+}
+
+$width-large: 1200px;
+$width-medium: 1000px;
+$width-small: 800px;
+
+
+$mobile-first: "screen and (max-width: 1500px)";
+@media #{$mobile-first} {
+    %button {
+        padding: 90px;
+        background: black;
+    }
+}
+
+//순서 중요 높은값부터 위로 선언
+@media screen and (max-width: $width-large + 10) {
+    %button {
+        padding: 70px;
+        background: red;
+    }
+}
+
+@media screen and (max-width: $width-medium) {
+    %button {
+        padding: 50px;
+        background: blue;
+    }
+}
+
+@media screen and (max-width: $width-small) {
+    %button {
+        padding: 30px;
+        background: orange;
+    }
+}
+

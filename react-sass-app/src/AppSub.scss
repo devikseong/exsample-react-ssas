@@ -1,0 +1,6 @@
+@mixin default-app-sub($color: pink) {
+    font-weight: bold;
+    text-decoration: none;
+    color: $color;
+    border-bottom: 2px solid black;
+}

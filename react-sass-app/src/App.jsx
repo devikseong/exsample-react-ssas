@@ -2,32 +2,49 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import "./App.scss"
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>Vite + React + SASS</h1>
+      <header role="banner">
+        <h1>중첩예제</h1>
+        <h1>Header</h1>
+        <p>TEST</p>
+        <h2>스타일 중첩 테스트</h2>
+      </header>
+      <p>Sass Test 1</p>
+      <div role="Test">
+        <a>TEST 부모참조 작업</a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <a>보통 a</a>
+      <div class="test">
+        <a>SASS 중첩 테스트</a>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div class="test1">
+        <a>SASS Mixin Test</a>
+      </div>
+      <div class="test2">
+        <a>SASS Mixin Test 2</a>
+      </div>
+      <div class="test3">
+        <a>SASS Mixin Test 2 기본값 정의</a>
+      </div>
+      <div class="test4">
+        <a>@import</a>
+      </div>
+      <div class="test5">
+        <a>@extend</a>
+      </div>
+      <div class="test6">
+        <a>@extend placeholder</a>
+      </div>
+      <div >
+        <a>@media</a>
+      </div>
     </>
   )
 }
